@@ -1,0 +1,11 @@
+---
+# vars file for N9K-S1
+
+router_id: 10.10.10.12
+
+loopbacks:
+  - { interface: loopback0, addr: 10.10.10.12, mask: 32 }
+  - { interface: loopback1, addr: 1.1.1.2, mask: 32 }
+
+p2p:
+  - { interface: Ethernet1/1, addr: 10.100.100.1, mask: 31 }

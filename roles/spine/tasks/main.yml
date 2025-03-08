@@ -1,0 +1,31 @@
+---
+-   name: CONFIGURE LOOPBACK INTERFACES
+    cisco.nxos.nxos_interfaces:
+        config:
+        -   name: "{{ item.interface }}"
+            enabled: true
+    loop: "{{ loopbacks }}"
+
+-   name: CONFIGURE INTERFACE IP ADDR
+    cisco.nxos.nxos_l3_interfaces:
+        config:
+        -   name: "{{ item.interface }}"
+            ipv4:
+            -   address: "{{ item.addr }}/{{ item.mask }}"
+    loop: "{{ loopbacks }}"
+
+-   name: CONFIGURE INTERFACES
+    cisco.nxos.nxos_interfaces:
+        config:
+        -   name: "{{ item.interface }}"
+            enabled: true
+            mode: layer3
+    loop: "{{ p2p }}"
+
+-   name: CONFIGURE INTERFACE IP ADDR
+    cisco.nxos.nxos_l3_interfaces:
+        config:
+        -   name: "{{ item.interface }}"
+            ipv4:
+            -   address: "{{ item.addr }}/{{ item.mask }}"
+    loop: "{{ p2p }}"
