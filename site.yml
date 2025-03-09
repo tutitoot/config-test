@@ -8,3 +8,7 @@
 - hosts: leaf
   roles:
     - role: leaf
+
+- hosts: all
+  roles:
+    - role: all

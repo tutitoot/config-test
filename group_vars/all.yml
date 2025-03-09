@@ -1,0 +1,12 @@
+ansible_network_os: nxos
+ansible_user: admin
+ansible_httpapi_pass: Geezer123!
+
+features:
+  - { feature: ospf }
+  - { feature: bgp }
+  - { feature: pim }
+
+ospf_process_id: UNDERLAY
+
+ospf_area: 0.0.0.0
